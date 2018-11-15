@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script th:inline="javascript">
+        var userId = [[${userId}]];
+        var gameId = [[${gameId}]];
+        var playerNum = [[${playerNum}]];
+        var lobbyId = [[${lobbyId}]];
+    </script>
+    <link rel="stylesheet" th:href="@{css/cowstyle.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{css/tooltip.css}" type="text/css"/>
+    <link rel="icon" th:href="@{images/fon.png}"/>
+    <link rel="icon" th:href="@{images/icon.png}"/>
+    <link rel="stylesheet" th:href="@{css/chat.css}" type="text/css"/>
+    <script type="text/javascript" th:src="@{js/cowsbulls.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{js/chat.js}" charset="utf-8"></script>
+    <title>Быки и коровы</title>
+</head>
+<body>
+    <div class="maintable">
+        <h1>
+            Игра "Быки и Коровы"
+        </h1>
+        <table>
+            <tr>
+                <td valign="top" class="infotable">
+                    <table border="1" class="infotable">
+                        <caption>Статистика и информация</caption>
+                        <tr>
+                            <th>ТИП</th>
+                            <th>[[${nick}]]</th>
+                            <th>[[${nick2}]]</th>
+                        </tr>
+                        <tr>
+                            <td>Рейтинг</td>
+                            <td>[[${rating}]]</td>
+                            <td>[[${rating2}]]</td>
+                        </tr>
+                        <tr>
+                            <td>Дата регистрации</td>
+                            <td>[[${regDate}]]</td>
+                            <td>[[${regDate2}]]</td>
+                        </tr>
+                    </table>
+                </td>
+                <td valign="top" class="lefttable">
+                    <table>
+                        <caption>Игровое поле № [[${lobbyId}]]</caption>
+                        <tr>
+                            <td valign="top">
+                                <table border="1" id="player1">
+                                    <tr>
+                                        <th>[[${playerNum}]]</th>
+                                        <th colspan="3">[[${nick}]]</th>
+                                    </tr>
+                                    <tr>
+                                        <th>ХОД</th>
+                                        <th>ЧИСЛО</th>
+                                        <th><img th:src="@{images/cowsandbulls/bull.png}" alt="Изображение быки"></th>
+                                        <th><img th:src="@{images/cowsandbulls/cow.png}" alt="Изображение коровы"></th>
+                                    </tr>
+                                </table>
+                                &nbsp;
+                            </td>
+                            <td valign="top">
+                                <table border="1" id="player2">
+                                    <tr>
+                                        <th>[[${playerNum2}]]</th>
+                                        <th colspan="3">[[${nick2}]]</th>
+                                    </tr>
+                                    <tr>
+                                        <th>ХОД</th>
+                                        <th>ЧИСЛО</th>
+                                        <th><img th:src="@{images/cowsandbulls/bull.png}" alt="Изображение быки"></th>
+                                        <th><img th:src="@{images/cowsandbulls/cow.png}" alt="Изображение коровы"></th>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" id="vnumber" name="number" placeholder="XXXX">
+                                <input type="button" id="vstepButton" name="stepButton" class="btn btn-primary" value="Ход"><br>
+                                <div id="validmessage"></div>
+                                <div id="winmessage"></div>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td valign="top" class="righttable">
+                    <textarea id="vchat" name="chat" class="chatbody" readonly="readonly" wrap="soft"></textarea><br>
+                    <textarea id="vchatmsg" name="chatmsg" class="chatmessage" wrap="soft"></textarea><br>
+                    <button id="vchatsubmit" name="chatsubmit" formaction="/chat/send" class="btn btn-primary" formmethod="post">Отправить в чат</button><br>
+                    <form id="vbacktoprofile" action="/profile" method="get">
+                        <input type="submit" id="vsubmit" name="submit" class="btn btn-primary" value="Вернуться в профиль"><br>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+<script>
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html>
+<head>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{css/slider.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{css/hangstyle.css}" type="text/css"/>
+    <link rel="icon" th:href="@{images/fon.png}"/>
+    <link rel="icon" th:href="@{images/icon.png}"/>
+    <link rel="stylesheet" th:href="@{css/chat.css}" type="text/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script th:inline="javascript">
+        var userId = [[${userId}]];
+        var gameId = [[${gameId}]];
+        var playerNum = [[${playerNum}]];
+        var lobbyId = [[${lobbyId}]];
+    </script>
+    <script type="text/javascript" th:src="@{js/slider.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{js/hangman.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{js/chat.js}" charset="utf-8"></script>
+    <title>Виселица</title>
+</head>
+<body>
+    <div id="maintab">
+        <h1>Виселица</h1>
+        <table>
+            <caption>Игровое поле № [[${lobbyId}]]</caption>
+            <tr>
+                <th></th>
+                <th class="words">[[${nick}]]</th>
+                <th class="words">[[${nick2}]]</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td valign="top" class="infocell">
+                    <table border="1" class="infotable">
+                        <caption>Статистика и информация</caption>
+                        <tr>
+                            <th>ТИП</th>
+                            <th>[[${nick}]]</th>
+                            <th>[[${nick2}]]</th>
+                        </tr>
+                        <tr>
+                            <td>Рейтинг</td>
+                            <td>[[${rating}]]</td>
+                            <td>[[${rating2}]]</td>
+                        </tr>
+                        <tr>
+                            <td>Дата регистрации</td>
+                            <td>[[${regDate}]]</td>
+                            <td>[[${regDate2}]]</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="slidetd">
+                    <div id="rotator1">
+                        <ul>
+                            <li class="show"><img src="images/hangman/hangman0.png" alt="0" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman1.png" alt="1" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman2.png" alt="2" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman3.png" alt="3" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman4.png" alt="4" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman5.png" alt="5" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman6.png" alt="6" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman7.png" alt="7" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman8.png" alt="8" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman9.png" alt="9" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman10.png" alt="10" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman11.png" alt="11" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman12.png" alt="12" class="slide-img"></li>
+                        </ul>
+                    </div>
+                    <!--<div id="hang1img0" hidden="hidden"><img src="/images/hangman/hangman0.png" alt="Изображение Виселицы"></div>-->
+                    <!--<div id="hang1img1" hidden="hidden"><img src="/images/hangman/hangman1.png" alt="Изображение Виселицы"></div>-->
+                </td>
+                <td class="slidetd">
+                    <div id="rotator2">
+                        <ul>
+                            <li class="show"><img src="images/hangman/hangman0.png" alt="0" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman1.png" alt="1" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman2.png" alt="2" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman3.png" alt="3" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman4.png" alt="4" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman5.png" alt="5" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman6.png" alt="6" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman7.png" alt="7" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman8.png" alt="8" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman9.png" alt="9" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman10.png" alt="10" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman11.png" alt="11" class="slide-img"></li>
+                            <li><img src="images/hangman/hangman12.png" alt="12" class="slide-img"></li>
+                        </ul>
+                    </div>
+                    <!--<div id="hang2img0" hidden="hidden"><img src="/images/hangman/hangman0.png" alt="Изображение Виселицы"></div>-->
+                    <!--<div id="hang2img1" hidden="hidden"><img src="/images/hangman/hangman1.png" alt="Изображение Виселицы"></div>-->
+                </td>
+                <td valign="top" rowspan="2">
+                    <textarea id="vchat" name="chat" class="chatbody" readonly="readonly" wrap="soft"></textarea><br>
+                    <textarea id="vchatmsg" name="chatmsg" class="chatmessage" wrap="soft"></textarea><br>
+                    <button id="vchatsubmit" name="chatsubmit" formaction="/chat/send" class="btn11 btn btn-primary" formmethod="post">Отправить в чат</button><br>
+                    <form id="vbacktoprofile" action="/profile" method="get">
+                        <button type="submit" id="vsubmit" class="btn11 btn btn-primary" name="submit">Вернуться в профиль</button><br>
+                    </form>
+                </td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td class="words">
+                    <div id="word"> &nbsp; </div>
+                </td>
+                <td class="words">
+                    <div id="word2"> &nbsp; </div>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+
+        <input type="text" id="vletter" name="letter" placeholder="Введите букву" width="50">
+        <input type="button" id="vstepButton" name="stepButton" class="btn11 btn btn-primary" value="Ход"><br>
+        <div id="validmessage"></div>
+        <div id="winmessage"></div>
+    </div>
+</body>
+</html>

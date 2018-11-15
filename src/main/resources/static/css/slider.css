@@ -1,0 +1,41 @@
+#maintab {
+    margin-left: 15%;
+    padding: 0px;
+    width: 1000px;
+}
+
+.words{
+    padding: 10px;
+    text-align: center;
+    font: bold 120% serif;
+}
+
+.slidetd, .slideth{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul,li{
+    margin: 0px;
+    padding: 0px;
+}
+
+#rotator1, #rotator2 {
+    width: 450px;
+    height: 360px;
+    margin: 0px;
+}
+
+#rotator1 ul li, #rotator2 ul li {
+    float:left; position:absolute; list-style: none;
+}
+
+#rotator1 ul li.show, #rotator2 ul li.show {
+    z-index:500;
+}
+
+.slide-img {
+    width: 440px;
+    height: 360px;
+    margin: 0px;
+}

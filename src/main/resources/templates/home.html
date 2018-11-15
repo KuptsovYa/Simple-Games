@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <link rel="stylesheet" th:href="@{css/home.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}" type="text/css"/>
+    <link rel="icon" th:href="@{images/fon.png}"/>
+    <link rel="icon" th:href="@{images/icon.png}"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <title>Симпл геймс</title>
+    <meta charset="UTF-8">
+</head>
+<div>
+    <!--<image th:src = "@{images/fon.png}"></image>-->
+    <div id = "headerwrap">
+        <div class = "container">
+            <div class ="row centered">
+                <div class ="cool-lg-8 col-lg-offset-2">
+                    <h1>Simple Games</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="button">
+        <div class="container">
+            <div class="row">
+                <button th:onclick="'window.location.href = \'' + @{/registration} + '\''" class="btn11 btn btn-primary ">Регистрация</button>
+                <button th:onclick="'window.location.href = \'' + @{/profile} + '\''" class="btn12 btn btn-primary ">Профиль</button>
+            </div>
+        </div>
+    </div>
+    <div class="container w">
+        <div class ="row centered">
+            <div class="col-lg-6">
+                <h4>Быки и коровы</h4>
+                <p id="vgame1" class="gameclass1" readonly="readonly">В классическом варианте игра рассчитана на двух игроков. Компьютер загадывает и записывает тайные 4-ех значные числа с неповторяющимися для каждого из игроков Игрок, который начинает игру первым, делает первую попытку отгадать число. Попытка — это 4-значное число с неповторяющимися цифрами. Противник сообщает в ответ, сколько цифр угадано без совпадения с их позициямив тайном числе (то есть количество коров) и сколько угадано вплоть до позиции в тайном числе (то есть количество быков).
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <h4>Виселица</h4>
+                <p id="vgame2" class="gameclass2" readonly="readonly">Один из игроков загадывает слово — все буквы слова неизвестны. Также рисуется виселица с петлёй Согласно традиции русских лингвистических игр, слово должно быть именем существительным, нарицательным в именительном падеже единственного числа, либо множественного числа при отсутствии у слова формы единственного числа. На нашем сайте можно указать любое слово для оппоненнта. Второй игрок предлагает букву, которая может входить в это слово. Если такая буква есть в слове, то первый игрок пишет её над соответствующими этой букве черточке. Если такой буквы нет, то к виселице добавляется круг в петле, изображающий голову. Второй игрок продолжает отгадывать буквы до тех пор, пока не отгадает всё слово. За каждый неправильный ответ первый игрок добавляет одну часть туловища к виселице. Если туловище в виселице нарисовано полностью, то отгадывающий игрок проигрывает, считается повешенным. Если игроку удаётся угадать слово, он выигрывает и может загадывать слово.
+                </p><br>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <p> Simple games team 2018 vers: 1.0</p>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        $(document).ajaxSend(function(e, xhr, options) {
+            xhr.setRequestHeader(header, token);
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+.chatbody {
+    overflow: auto;
+    resize: none;
+    outline: none;
+    width: 25em;
+    height: 10em;
+}
+
+.chatmessage{
+    overflow: auto;
+    resize: none;
+    outline: none;
+    width: 25em;
+    height: 2em;
+}
